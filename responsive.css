@@ -2,7 +2,7 @@
   display: none;
   position: fixed;
   z-index: 200;
-  right: 1.7rem;
+  left: 1.7rem;
   top: 0.6rem;
   cursor: pointer;
 }
