@@ -8,35 +8,38 @@
 //   cursor.style.top = y + 'px';
 //   cursor.style.left = x + 'px';
 // });
-document.body.style.cursor = 'none';
-const cursor = document.querySelector('.cursor');
-let isScrolling = false;
+// document.body.style.cursor = 'none';
+if (window.outerWidth > 600) {
+  const cursor = document.querySelector('.cursor');
+  let isScrolling = false;
 
-document.addEventListener('mousemove', e => {
-  let x = e.clientX;
-  let y = e.clientY;
+  document.addEventListener('mousemove', e => {
+    let x = e.clientX;
+    let y = e.clientY;
 
-  cursor.style.top = y + 'px';
-  cursor.style.left = x + 'px';
-});
+    cursor.style.top = y + 'px';
+    cursor.style.left = x + 'px';
+  });
 
-document.addEventListener('scroll', () => {
-  isScrolling = true;
-  clearTimeout(isScrolling);
+  document.addEventListener('scroll', () => {
+    if (window.outerWidth > 600) {
+      isScrolling = true;
+      clearTimeout(isScrolling);
+    }
+    cursor.style.display = 'none';
 
-  cursor.style.display = 'none';
+    setTimeout(() => {
+      const scrollX = window.scrollX || window.pageXOffset;
+      const scrollY = window.scrollY || window.pageYOffset;
 
-  setTimeout(() => {
-    const scrollX = window.scrollX || window.pageXOffset;
-    const scrollY = window.scrollY || window.pageYOffset;
+      cursor.style.top = scrollY + 'px';
+      cursor.style.left = scrollX + 'px';
 
-    cursor.style.top = scrollY + 'px';
-    cursor.style.left = scrollX + 'px';
-
-    cursor.style.display = 'block';
-    isScrolling = false;
-  }, 100);
-});
+      cursor.style.display = 'block';
+      isScrolling = false;
+    }, 100);
+  });
+}
 
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.contact');
@@ -64,8 +67,6 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       console.log('Intersecting');
       entry.target.classList.add('show');
-    } else {
-      entry.target.classList.remove('show');
     }
   });
 });

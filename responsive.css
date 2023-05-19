@@ -1,10 +1,15 @@
 #ham-icon {
+  display: none;
   position: absolute;
+  z-index: 200;
   right: 1.7rem;
   top: 0.6rem;
   cursor: pointer;
 }
 @media (max-width: 600px) {
+  #ham-icon {
+    display: block;
+  }
   header nav {
     display: none;
   }
@@ -22,7 +27,7 @@
     font-size: 0.9rem;
   }
   .social span {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .social-links img {
     width: 30px;
@@ -70,6 +75,9 @@
     left: 65px;
     bottom: -15px;
   }
+  .cursor {
+    display: none;
+  }
 }
 .menu-responsive {
   position: fixed;
@@ -77,7 +85,7 @@
   height: 100vh;
   padding: 15vw;
   background-color: #252525;
-  z-index: 100;
+  z-index: 300;
 }
 .menu-responsive span {
   color: #aeaeae;
