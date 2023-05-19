@@ -1,6 +1,6 @@
 #ham-icon {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 200;
   right: 1.7rem;
   top: 0.6rem;
