@@ -7,9 +7,14 @@
 html {
   scroll-behavior: smooth;
 }
+@font-face {
+  font-family: Bajigoor;
+  src: url(Bajigoor.otf);
+}
 body {
   font-family: 'Alata';
   background-color: #252525;
+  overflow-x: hidden;
 }
 section {
   position: relative;

@@ -8,7 +8,7 @@
 //   cursor.style.top = y + 'px';
 //   cursor.style.left = x + 'px';
 // });
-// document.body.style.cursor = 'none';
+document.body.style.cursor = 'none';
 if (window.outerWidth > 600) {
   const cursor = document.querySelector('.cursor');
   let isScrolling = false;
